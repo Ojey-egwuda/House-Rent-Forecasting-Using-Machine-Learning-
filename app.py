@@ -123,5 +123,6 @@ if predict_button:
         price = predict(bedroom, bathroom, toilet, Location, House_type, Island)
 
         # Display the result
-        st.sidebar.write('The predicted price of the property is: ₦{:,.2f}'.format(price[0]))
+        st.sidebar.write('The Predicted Rent of the House is: ₦{:,.2f}'.format(price[0]))
+
         
