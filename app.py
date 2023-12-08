@@ -10,7 +10,8 @@ xgb_model = joblib.load('best_xgboost_model.pkl')
 # Streamlit setup
 st.set_page_config(
     layout='wide',
-    page_title='House Rent Prediction'
+    page_title='House Rent Prediction',
+    page_icon = 'home.png'
 )
 
 st.markdown("<h1 style='text-align: center; color: black;'> House Rent Prediction for Lagos State Nigeria Using Machine Learning </h1>", unsafe_allow_html=True)
