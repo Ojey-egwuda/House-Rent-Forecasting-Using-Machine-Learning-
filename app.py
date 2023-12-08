@@ -14,7 +14,7 @@ st.set_page_config(
     page_icon = 'home.png'
 )
 
-st.markdown("<h1 style='text-align: center; color: black;'> House Rent Prediction for Lagos State Nigeria Using Machine Learning </h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'> House Rent Prediction for Lagos State Nigeria Using Machine Learning </h1>", unsafe_allow_html=True)
 # Coordinates of Lagos
 # Coordinates of Lagos
 lagos_coordinates = {'LAT': 6.465422, 'LON': 3.406448}
@@ -26,7 +26,7 @@ lagos_df = pd.DataFrame([lagos_coordinates])
 st.map(lagos_df)
 
 # Developer's contact information
-st.markdown("<h2 style='color: black;'>Contact the Developer</h2>", unsafe_allow_html=True)
+st.markdown("<h2 style=>Contact the Developer</h2>", unsafe_allow_html=True)
 st.markdown("<p style='font-size: 16px;'>Connect with Egwuda Ojonugwa on : "
             "<a href='https://www.linkedin.com/in/egwudaojonugwa/' style='color: #00CED1;'>LinkedIn</a></p>",
             unsafe_allow_html=True)
