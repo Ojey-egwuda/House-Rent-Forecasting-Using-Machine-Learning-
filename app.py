@@ -4,6 +4,7 @@ import joblib
 import time
 import xgboost as xgb
 
+
 # Load the pre-trained XGBoost model
 xgb_model = joblib.load('best_xgboost_model.pkl')
 
@@ -11,10 +12,57 @@ xgb_model = joblib.load('best_xgboost_model.pkl')
 st.set_page_config(
     layout='wide',
     page_title='House Rent Prediction',
-    page_icon = 'home.png'
+    page_icon='home.png'
 )
 
+# Function to check login credentials
+def authenticate(username, password):
+    # Replace this with your actual authentication logic
+    return username == "Ojey" and password == "Ekorent"
+
+# Login page
+def show_login():
+    st.title("Ojey House Rent Prediction System")
+
+    # Center-align the title
+    title_style = """
+        <style>
+            div.stElement.stTitle {
+                text-align: center;
+            }
+            div[data-baseweb="input"] {
+                width: 250px;
+            }
+        </style>
+    """
+    st.markdown(title_style, unsafe_allow_html=True)
+
+    # Shorter input boxes
+    username = st.text_input("Username:", key="username")
+    password = st.text_input("Password:", key="password", type="password")
+
+    login_button = st.button("Login")
+
+    if login_button:
+        if authenticate(username, password):
+            st.success("Login successful!")
+            st.session_state.is_authenticated = True
+        else:
+            st.error("Invalid credentials")
+
+# Check if the user is authenticated
+if not hasattr(st.session_state, "is_authenticated"):
+    st.session_state.is_authenticated = False
+
+# Display login page if not authenticated
+if not st.session_state.is_authenticated:
+    show_login()
+    st.stop()
+
+# Continue with the rest of your code for the main prediction page
 st.markdown("<h1 style='text-align: center;'> House Rent Prediction for Lagos State Nigeria Using Machine Learning </h1>", unsafe_allow_html=True)
+# Coordinates of Lagos
+# ... (rest of your code)
 # Coordinates of Lagos
 # Coordinates of Lagos
 lagos_coordinates = {'LAT': 6.465422, 'LON': 3.406448}
@@ -30,7 +78,6 @@ st.markdown("<h2 style=>Contact the Developer</h2>", unsafe_allow_html=True)
 st.markdown("<p style='font-size: 16px;'>Connect with Egwuda Ojonugwa on : "
             "<a href='https://www.linkedin.com/in/egwudaojonugwa/' style='color: #00CED1;'>LinkedIn</a></p>",
             unsafe_allow_html=True)
-
 
 # Sidebar for user input
 st.sidebar.title("House Rent Estimator")
@@ -125,5 +172,3 @@ if predict_button:
 
         # Display the result
         st.sidebar.write('The Predicted Rent of the House is: ₦{:,.2f}'.format(price[0]))
-
-        
