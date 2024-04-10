@@ -15,65 +15,16 @@ st.set_page_config(
     page_icon='home.png'
 )
 
-# Function to check login credentials
-def authenticate(username, password):
-    # Replace this with your actual authentication logic
-    return username == "Ojey" and password == "Ekorent"
 
-# Login page
-def show_login():
-    st.title("Ojey House Rent Prediction System")
-
-    # Center-align the title
-    title_style = """
-        <style>
-            div.stElement.stTitle {
-                text-align: center;
-            }
-            div[data-baseweb="input"] {
-                width: 250px;
-            }
-        </style>
-    """
-    st.markdown(title_style, unsafe_allow_html=True)
-
-    # Shorter input boxes
-    username = st.text_input("Username:", key="username")
-    password = st.text_input("Password:", key="password", type="password")
-
-    login_button = st.button("Login")
-
-    if login_button:
-        if authenticate(username, password):
-            st.success("Login successful!")
-            st.session_state.is_authenticated = True
-        else:
-            st.error("Invalid credentials")
-
-# Check if the user is authenticated
-if not hasattr(st.session_state, "is_authenticated"):
-    st.session_state.is_authenticated = False
-
-# Display login page if not authenticated
-if not st.session_state.is_authenticated:
-    show_login()
-    st.stop()
-
-# Continue with the rest of your code for the main prediction page
 st.markdown("<h1 style='text-align: center;'> House Rent Prediction for Lagos State Nigeria Using Machine Learning </h1>", unsafe_allow_html=True)
-# Coordinates of Lagos
-# ... (rest of your code)
-# Coordinates of Lagos
-# Coordinates of Lagos
 lagos_coordinates = {'LAT': 6.465422, 'LON': 3.406448}
 
-# Create a DataFrame with the coordinates
 lagos_df = pd.DataFrame([lagos_coordinates])
 
 # Display the map of Lagos
 st.map(lagos_df)
 
-# Developer's contact information
+
 st.markdown("<h2 style=>Contact the Developer</h2>", unsafe_allow_html=True)
 st.markdown("<p style='font-size: 16px;'>Connect with Egwuda Ojonugwa on : "
             "<a href='https://www.linkedin.com/in/egwudaojonugwa/' style='color: #00CED1;'>LinkedIn</a></p>",
@@ -112,7 +63,7 @@ predict_button = st.sidebar.button('Predict Price')
 # Create a spinner in the main st context
 spinner = st.spinner('Predicting...')
 
-# Display the rolling predicting sign under the "Predict Price" button
+
 if predict_button:
     with spinner:
         time.sleep(2)  # Simulating prediction time
@@ -156,11 +107,11 @@ if predict_button:
             bedroom = int(bedroom)
             bathroom = int(bathroom)
             toilet = int(toilet)
-            Location = int(Location)  # Assuming the location is numerical
-            House_type = int(House_type)  # Assuming the house type is numerical
-            Island = 1 if Island == 'Yes' else 0  # Convert 'Yes' to 1, 'No' to 0
+            Location = int(Location)  
+            House_type = int(House_type)  
+            Island = 1 if Island == 'Yes' else 0
 
-            # Ensure the order of features matches the order during training
+            
             prediction = xgb_model.predict(
                 pd.DataFrame([[Location, bedroom, bathroom, toilet, House_type, Island]],
                              columns=['LOCATION', 'BEDROOMS', 'BATHROOMS', 'TOILETS', 'HOUSE_TYPE', 'ISLAND'])
