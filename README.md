@@ -1,7 +1,7 @@
 # House-Rent-Forecasting-Using-Machine-Learning-
 
 ## Overview
-Welcome to the House Rent Prediction App! This web application predicts the rent prices of houses in Lagos State, Nigeria, using machine learning. The app is designed to help users estimate the rental prices of houses based on various features such as location, number of bedrooms, bathrooms, toilets, house type, and whether it's on Lagos island or mainland. Interact with the app here: https://ekohouserentpred.streamlit.app/
+Welcome to the House Rent Prediction App! This web application predicts the rent prices of houses in Lagos State, Nigeria, using machine learning. The app is designed to help users estimate the rental prices of houses based on various features such as location, number of bedrooms, bathrooms, toilets, house type, and whether it's on Lagos island or mainland. Interact with the app here: https://ekohouserentpred.streamlit.app
 
 
 ![house](https://github.com/Ojey-egwuda/House-Rent-Forecasting-Using-Machine-Learning-/assets/79419703/85d1e51c-943f-4ee2-912b-83714439cc84)
@@ -16,7 +16,9 @@ Welcome to the House Rent Prediction App! This web application predicts the rent
 
 ## How to Use
 1. Input House Features: Select the location of the house, number of bedrooms, bathrooms, toilets, house type, and whether it's on lagos island or mainland from the sidebar.
+   
 2. Predict Rent Price: Click the "Predict Price" button to get the predicted rent price of the house.
+   
 3. View Prediction: The predicted rent price will be displayed in the sidebar.
 
 ![home](https://github.com/Ojey-egwuda/House-Rent-Forecasting-Using-Machine-Learning-/assets/79419703/71e25c03-8a75-449c-adc9-a52a177f0b2c)
